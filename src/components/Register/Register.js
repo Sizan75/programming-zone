@@ -5,10 +5,13 @@ import {  FaGithubSquare } from "react-icons/fa";
 import login from '../../assets/login.json'
 import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+
 const Register = () => {
-    const {createUser,singInGoogle}= useContext(AuthContext)
+    const {createUser,singInGoogle,singInGithub}= useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GithubAuthProvider();
+
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -33,7 +36,12 @@ const Register = () => {
         .catch(error=> console.error(error))
     }
     const handleGithubSignIn = () => {
-
+        singInGithub(githubProvider)
+        .then(result =>{
+            const user=result.user;
+            console.log(user)
+        })
+        .catch(error=> console.error(error))
     }
     return (
         <div className="hero min-h-screen bg-base-200">

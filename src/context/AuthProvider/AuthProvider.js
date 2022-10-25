@@ -12,9 +12,14 @@ const AuthProvider = ({children}) => {
     const singInGoogle = (provider) =>{
         return signInWithPopup(auth, provider)
     }
+    const singInGithub = (provider) =>{
+        return signInWithPopup(auth, provider)
+    }
+
     const authInfo ={
         createUser,
-        singInGoogle
+        singInGoogle,
+        singInGithub
     }
     return (
         <div>
