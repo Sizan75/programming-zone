@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { FaUser, FaUserAlt } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import logo from '../../images/logo535.png'
@@ -75,18 +76,28 @@ const Header = () => {
                             <li className="text-gray-600 font-semibold hover:text-purple-600">
                                 <NavLink to="/Blog">Blog</NavLink>
                             </li>
+                            <li className="text-gray-600 font-semibold hover:text-purple-600">
+                                <NavLink to="/faq">FAQ</NavLink>
+                            </li>
 
                             {
                                 user?.uid ?
                                     <>
                                         <li className="text-gray-600 font-semibold hover:text-purple-600">
-                                        <span>{user?.displayName}</span>
+                                            <span>{user?.displayName}</span>
                                         </li>
+
+                                       
+                                        {user?.photoURL ?
                                         <div className="avatar">
-                                            <div className="w-12 rounded-full">
-                                                <img src={user.photoURL} alt="" />
-                                            </div>
+                                        <div className="w-12 rounded-full tooltip" data-tip={user?.displayName}>
+
+                                            <img src={user?.photoURL} alt="" />
                                         </div>
+                                    </div>
+                                        : <FaUser></FaUser>}
+
+
                                         <li className="text-gray-800  font-semibold hover:text-purple-600">
                                             <button onClick={handleUserSignout}><NavLink to="/register">Logout</NavLink></button>
                                         </li>
