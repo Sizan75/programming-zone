@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { FaUser, FaUserAlt } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import logo from '../../images/logo535.png'
+import ReactTooltip from 'react-tooltip';
 
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
@@ -14,7 +15,7 @@ const Header = () => {
             .then(() => { })
             .catch(error => console.log(error))
     }
-    const handleMode =(event) =>{
+    const handleMode = (event) => {
         setMode(event.target.checked)
     }
     return (
@@ -74,7 +75,7 @@ const Header = () => {
                                 <div className="form-control">
                                     <label onClick={handleMode} className="label cursor-pointer">
                                         {/* <span className="label-text">Remember me</span> */}
-                                        <input type="checkbox" className="toggle toggle-primary"  />
+                                        <input type="checkbox" className="toggle toggle-primary" />
                                     </label>
                                 </div>
                             </li>
@@ -106,6 +107,7 @@ const Header = () => {
 
                                                     <img src={user?.photoURL} alt="" />
                                                 </div>
+                                                <ReactTooltip />
                                             </div>
                                             : <FaUser></FaUser>}
 
