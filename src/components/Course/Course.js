@@ -10,9 +10,10 @@ const Course = ({course}) => {
         <div className="card-body bg-green-100  text-dark">
           <h2 className="card-title">{name}</h2>
           <p className=''>{duration}</p>
+          <p className=''>{rating}</p>
           <h5 className='font-semibold'>${price}</h5>
           <div className="card-actions justify-end">
-            <button  className="btn btn-success text-dark"><Link to={`/${_id}`}>More Details</Link></button>
+            <button  className="btn btn-success text-dark"><Link to={`/courses/${_id}`}>More Details</Link></button>
           </div>
         </div>
       </div>
