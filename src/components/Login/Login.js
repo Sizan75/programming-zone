@@ -1,6 +1,6 @@
 import React from 'react';
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub, FaGithubSquare } from "react-icons/fa";
+import {  FaGithubSquare } from "react-icons/fa";
 import Lottie from 'lottie-react'
 import login21 from '../../assets/login21.json'
 import { Form, Link } from 'react-router-dom';

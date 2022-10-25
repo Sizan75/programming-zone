@@ -3,13 +3,23 @@ import Lottie from 'lottie-react'
 import login from '../../assets/login.json'
 import { Form, Link } from 'react-router-dom';
 const Register = () => {
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const fullName= form.fullName.value;
+        const photoURL= form.photoURL.value;
+        const email= form.email.value;
+        const password= form.password.value;
+        console.log(email,password,photoURL,fullName)
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
               
               
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <Form className="card-body">
+                    <Form onSubmit={handleSubmit} className="card-body">
                 <h4 className="text-2xl font-semibold">Register now!</h4>
                         <div className="form-control">
                             <label className="label">
