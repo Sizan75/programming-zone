@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Lottie from 'lottie-react'
+import { FcGoogle } from "react-icons/fc";
+import {  FaGithubSquare } from "react-icons/fa";
 import login from '../../assets/login.json'
 import { Form, Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 const Register = () => {
-
+    const {createUser,singInGoogle}= useContext(AuthContext)
+    const googleProvider = new GoogleAuthProvider()
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -12,6 +17,23 @@ const Register = () => {
         const email= form.email.value;
         const password= form.password.value;
         console.log(email,password,photoURL,fullName)
+        createUser(email,password)
+        .then(result =>{
+            const user=result.user;
+            console.log(user)
+        })
+        .catch(error=> console.error(error))
+    }
+    const handleGoogleSignIn = () =>{
+        singInGoogle(googleProvider)
+        .then(result =>{
+            const user=result.user;
+            console.log(user)
+        })
+        .catch(error=> console.error(error))
+    }
+    const handleGithubSignIn = () => {
+
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -46,7 +68,7 @@ const Register = () => {
                             <input name='password' type="password" placeholder="password" className="input input-bordered input-success w-full max-w-xs" required />
                         </div>
                         <div className="form-control mt-5">
-                            <button className="btn btn-success">Login</button>
+                            <button className="btn btn-success">Register</button>
                             <label className="label">
                         <p><small>Already have an account?</small>
                                     <Link to="/login" className="text-purple-700 link link-hover">Log In</Link>
@@ -54,8 +76,8 @@ const Register = () => {
                                 </label>
                         </div>
                     </Form>
-                    <button className="btn btn-primary mt-5">Login</button>
-                    <button className="btn btn-primary mt-5">Login</button>
+                    <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success mt-1 text-dark"><FcGoogle></FcGoogle>  Google Sign In</button>
+                <button onClick={handleGithubSignIn} className="btn btn-outline btn-info mt-5"><FaGithubSquare></FaGithubSquare>  GitHub Sign In </button>
                 </div>
                 <div className='relative lg:w-1/4 '>
                 <div className="w-full lg:w-4/5 lg:ml-auto h-48 sm:w-2/5 sm:h-36 ">

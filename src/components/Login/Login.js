@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import {  FaGithubSquare } from "react-icons/fa";
 import Lottie from 'lottie-react'
 import login21 from '../../assets/login21.json'
 import { Form, Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
-
+    const {singInGoogle}= useContext(AuthContext)
+    const googleProvider= new GoogleAuthProvider();
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -14,7 +17,12 @@ const Login = () => {
         console.log(email,password)
     }
     const handleGoogleSignIn = () =>{
-
+        singInGoogle(googleProvider)
+        .then(result =>{
+            const user=result.user;
+            console.log(user)
+        })
+        .catch(error=> console.error(error))
     }
     const handleGithubSignIn = () => {
 
