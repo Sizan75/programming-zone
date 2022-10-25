@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import logo from '../../images/logo535.png'
 
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
+    const {usersignOut}=useContext(AuthContext)
+
+    const handleUserSignout = () =>{
+        return usersignOut()
+        .then(()=>{})
+        .catch(error => console.log(error))
+    }
     return (
       <nav className="w-full bg-white shadow">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
