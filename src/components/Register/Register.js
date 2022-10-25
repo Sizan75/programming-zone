@@ -10,6 +10,7 @@ const Register = () => {
               
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <Form className="card-body">
+                <h4 className="text-2xl font-semibold">Register now!</h4>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Full Name</span>
@@ -35,7 +36,7 @@ const Register = () => {
                             <input name='password' type="password" placeholder="password" className="input input-bordered input-success w-full max-w-xs" required />
                         </div>
                         <div className="form-control mt-5">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-success">Login</button>
                             <label className="label">
                         <p><small>Already have an account?</small>
                                     <Link to="/login" className="text-purple-700 link link-hover">Log In</Link>
