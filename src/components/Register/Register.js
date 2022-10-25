@@ -8,24 +8,27 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-    const {createUser,singInGoogle,singInGithub}= useContext(AuthContext)
+    const {createUser,singInGoogle,singInGithub,updateUserprofile}= useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider();
 
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
-        const fullName= form.fullName.value;
+        const displayName= form.displayName.value;
         const photoURL= form.photoURL.value;
         const email= form.email.value;
         const password= form.password.value;
-        console.log(email,password,photoURL,fullName)
+        console.log(email,password,photoURL,displayName)
         createUser(email,password)
         .then(result =>{
             const user=result.user;
             console.log(user)
+            handleupdateUserprofile(displayName,photoURL)
+            form.reset();
         })
         .catch(error=> console.error(error))
+      
     }
     const handleGoogleSignIn = () =>{
         singInGoogle(googleProvider)
@@ -39,9 +42,21 @@ const Register = () => {
         singInGithub(githubProvider)
         .then(result =>{
             const user=result.user;
-            console.log(user)
+            // console.log(user)
         })
         .catch(error=> console.error(error))
+    }
+    const handleupdateUserprofile = (name,photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserprofile(profile)
+        .then(() =>{
+        })
+        .catch(error=>{
+            console.error(error)
+        })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -55,7 +70,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Full Name</span>
                             </label>
-                            <input name='fullName' type="text" placeholder="full name here" className="input input-bordered input-success w-full max-w-xs" required/>
+                            <input name='displayName' type="text" placeholder="full name here" className="input input-bordered input-success w-full max-w-xs" required/>
                         </div>
                         <div className="form-control">
                             <label className="label">

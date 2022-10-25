@@ -1,11 +1,12 @@
-import React, { createContext } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import app from '../../firebase/firebase.config';
-import { createUserWithEmailAndPassword, getAuth, signInWithPopup, signOut} from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from "firebase/auth";
 
 export const AuthContext =createContext()
+
 const AuthProvider = ({children}) => {
     const auth=getAuth(app)
-    
+    const [user, setuser]=useState(null)    
     // creating user by email password 
     const createUser = (email,password) =>{
         return createUserWithEmailAndPassword(auth,email,password)
@@ -18,6 +19,24 @@ const AuthProvider = ({children}) => {
     const singInGithub = (provider) =>{
         return signInWithPopup(auth, provider)
     }
+    const userLogIn = (email,password) =>{
+        
+        return signInWithEmailAndPassword(auth,email,password)
+     }
+     useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
+                setuser(currentUser)
+            console.log(currentUser)
+            
+        })
+        return ()=>{
+            unsubscribe();
+        }
+    }, [])
+    
+    const updateUserprofile = (profile) =>{
+        return updateProfile(auth.currentUser, profile)
+    }
     // signOut function 
     const usersignOut = () =>{
         
@@ -27,7 +46,10 @@ const AuthProvider = ({children}) => {
         createUser,
         singInGoogle,
         singInGithub,
-        usersignOut
+        user,
+        usersignOut,
+        updateUserprofile,
+        userLogIn
     }
 
     return (
