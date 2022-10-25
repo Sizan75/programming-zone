@@ -13,7 +13,7 @@ const Course = ({course}) => {
           <p className=''>{rating}</p>
           <h5 className='font-semibold'>${price}</h5>
           <div className="card-actions justify-end">
-            <button  className="btn btn-success text-dark"><Link to={`/courses/${_id}`}>More Details</Link></button>
+            <Link to={`/courses/${_id}`} className="btn btn-success text-dark"> More Details</Link>
           </div>
         </div>
       </div>
