@@ -6,12 +6,16 @@ import logo from '../../images/logo535.png'
 
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
+    const [mode, setMode] = useState(false);
     const { usersignOut, user } = useContext(AuthContext)
 
     const handleUserSignout = () => {
         return usersignOut()
             .then(() => { })
             .catch(error => console.log(error))
+    }
+    const handleMode =(event) =>{
+        setMode(event.target.checked)
     }
     return (
         <nav className="w-full bg-white shadow">
@@ -66,6 +70,14 @@ const Header = () => {
                             }`}
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                            <li>
+                                <div className="form-control">
+                                    <label onClick={handleMode} className="label cursor-pointer">
+                                        {/* <span className="label-text">Remember me</span> */}
+                                        <input type="checkbox" className="toggle toggle-primary"  />
+                                    </label>
+                                </div>
+                            </li>
                             <li className="text-gray-600 font-semibold hover:text-purple-600">
                                 <NavLink to="/">Home</NavLink>
                             </li>
@@ -87,15 +99,15 @@ const Header = () => {
                                             <span>{user?.displayName}</span>
                                         </li>
 
-                                       
-                                        {user?.photoURL ?
-                                        <div className="avatar">
-                                        <div className="w-12 rounded-full tooltip" data-tip={user?.displayName}>
 
-                                            <img src={user?.photoURL} alt="" />
-                                        </div>
-                                    </div>
-                                        : <FaUser></FaUser>}
+                                        {user?.photoURL ?
+                                            <div className="avatar">
+                                                <div className="w-12 rounded-full tooltip" data-tip={user?.displayName}>
+
+                                                    <img src={user?.photoURL} alt="" />
+                                                </div>
+                                            </div>
+                                            : <FaUser></FaUser>}
 
 
                                         <li className="text-gray-800  font-semibold hover:text-purple-600">
