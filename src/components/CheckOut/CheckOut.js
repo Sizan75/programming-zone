@@ -2,12 +2,10 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 const CheckOut = () => {
-    const {course}= useLoaderData();
-    const {_id,name,price}=course;
+    const checkout= useLoaderData();
+    const {name,price}=checkout;
     return (
         <div>
-           
- 
     <div className="relative w-full h-full">
       <div className="absolute hidden w-full bg-gray-50 lg:block h-96" />
       <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -19,7 +17,7 @@ const CheckOut = () => {
             <div className="p-8 bg-gray-900 rounded">
               <div className="mb-4 text-center">
                 <p className="text-xl font-medium tracking-wide text-white">
-                  Pro Plan
+                  {name}
                 </p>
                 <div className="flex items-center justify-center">
                   <p className="mr-2 text-5xl font-semibold text-white lg:text-6xl">
