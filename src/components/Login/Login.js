@@ -3,10 +3,13 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithubSquare } from "react-icons/fa";
 import Lottie from 'lottie-react'
 import login21 from '../../assets/login21.json'
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
+    const navigate= useNavigate()
+    const location= useLocation();
+    const from = location.state?.from?.pathname || '/'
     const [error, setError] = useState('')
     const { userLogIn, singInGoogle, singInGithub } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider();
@@ -21,6 +24,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                navigate(from, {replace: true})
                 form.reset()
                 setError('')
             })
@@ -81,7 +85,7 @@ const Login = () => {
                     <button onClick={handleGithubSignIn} className="btn btn-outline btn-info mt-5"><FaGithubSquare></FaGithubSquare>  GitHub Sign In </button>
                 </div>
                 <div className='relative lg:w-1/2 '>
-                    <div className="w-full lg:w-4/5 lg:ml-auto h-72  sm:h-36 ">
+                    <div className="w-full lg:w-4/5 mb-5 lg:ml-auto h-80  sm:h-36 ">
                         <Lottie animationData={login21} loop={true} />
                     </div>
                 </div>

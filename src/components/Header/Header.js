@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FaUser } from 'react-icons/fa';
+import { FaSignOutAlt, FaUser } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import logo from '../../images/logo535.png'
@@ -96,9 +96,7 @@ const Header = () => {
                             {
                                 user?.uid ?
                                     <>
-                                        <li className="text-gray-600 font-semibold hover:text-purple-600">
-                                            <span>{user?.displayName}</span>
-                                        </li>
+                                       
 
 
                                         {user?.photoURL ?
@@ -113,7 +111,7 @@ const Header = () => {
 
 
                                         <li className="text-gray-800  font-semibold hover:text-purple-600">
-                                            <button onClick={handleUserSignout}><NavLink to="/register">Logout</NavLink></button>
+                                            <button onClick={handleUserSignout}><NavLink to="/register"><FaSignOutAlt></FaSignOutAlt></NavLink></button>
                                         </li>
                                     </> :
 

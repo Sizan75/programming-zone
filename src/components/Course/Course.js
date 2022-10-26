@@ -9,9 +9,9 @@ const Course = ({course}) => {
         <figure className='bg-slate-700'><img className='h-56 ' src={picture} alt="course" /></figure>
         <div className="card-body bg-green-100  text-dark">
           <h2 className="card-title">{name}</h2>
-          <p className=''>{duration}</p>
-          <p className=''>{rating}</p>
-          <h5 className='font-semibold'>${price}</h5>
+          <p className=''>Total hour of video:{duration}</p>
+          <p className=''>rating:{rating}</p>
+          <h5 className='font-bold text-lg m-0'>price: ${price}</h5>
           <div className="card-actions justify-end">
             <Link to={`/courses/${_id}`} className="btn btn-success text-dark"> More Details</Link>
           </div>
