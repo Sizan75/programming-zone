@@ -2,7 +2,6 @@ import React from 'react';
 import { FaGlobe, FaStar } from 'react-icons/fa';
 import { FcConferenceCall, FcDownload, FcReadingEbook } from 'react-icons/fc';
 import { Link, useLoaderData } from 'react-router-dom';
-
 import ReactToPdf from "react-to-pdf";
 
 
@@ -11,14 +10,14 @@ const CourseDetails = () => {
     const course = useLoaderData();
     const { _id, name, picture, instructor, price, total_student, rating, duration, total_reviewed, language, total_lesson, } = course
 
-
+// react to pdf
     const ref = React.createRef();
-    
     return (
         <div>
             <div className='flex justify-around'>
                 <h2 className='text-4xl font-bold text-blue-600'>Course Details</h2>
             <div>
+                {/* pdf downloading here */}
 <ReactToPdf targetRef={ref} filename="course-details.pdf"    >
         {({toPdf}) => (
             <button onClick={toPdf}>< FcDownload className="text-4xl"/></button>
@@ -36,7 +35,7 @@ const CourseDetails = () => {
                         <h5 className="mb-2 text-2xl flex font-bold tracking-tight text-gray-900 dark:text-white">{name}</h5>
 
                         <p className="mb-3 font-semibold text-xl text-gray-700 dark:text-gray-400 flex">Instructor:{instructor}</p>
-                        <p className="mb-3 font-semibold text-xl text-gray-700 dark:text-gray-400 flex">Instructor:{duration}hours of video</p>
+                        <p className="mb-3 font-semibold text-xl text-gray-700 dark:text-gray-400 flex">{duration} of video</p>
                         <div className='flex justify-between text-xl '>
                             <p className="mb-3 flex  font-semibold  text-gray-700 dark:text-gray-400">Rating:<FaStar className='text-orange-500'></FaStar> {rating}</p>
                             <p className="mb-3 font-semibold flex gap-4 text-gray-700 dark:text-gray-400">({total_reviewed})</p>
