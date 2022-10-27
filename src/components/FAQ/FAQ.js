@@ -76,21 +76,18 @@ const FAQ = () => {
               
             </div>
             <div className="space-y-4">
-              <Item title="The quick, brown fox jumps over a lazy dog?">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam, eaque ipsa quae.
+              <Item title="Can anyone buy those courses?">
+                Yes, those courses are for beginners.
               </Item>
-              <Item title="The first mate and his Skipper too will do?">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam, eaque ipsa quae.
+              <Item title="How can i make payment?">
+               you can make payment by bkash, nagad,dutch bangla bank.
               </Item>
-              <Item title="Is the Space Pope reptilian!?">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam, eaque ipsa quae.
+              <Item title="Why should people buy course from here?">
+                Those courses are by the experts from reputed compony around the world.
+                By learning that course you can know about this site job.
               </Item>
-              <Item title="How much money you got on you?">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam, eaque ipsa quae.
+              <Item title="Can i get any support ?">
+                Yes, our instructor is here to give you support when you need it.
               </Item>
             </div>
           </div>
