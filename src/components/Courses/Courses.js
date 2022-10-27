@@ -1,23 +1,12 @@
-import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import {useLoaderData } from 'react-router-dom';
 import Course from '../Course/Course';
+import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 const Courses = () => {
     const courses= useLoaderData();
-    
     return (
-        <div className='grid grid-cols-4 gap-4  '>
-            <div >
-            <h3 className='text-xl'>Courses</h3>
-            {
-                courses.map(course => 
-                    <ul key={course._id} className="menu bg-base-100  sm:w-56">
-                    <li><Link to={`/courses/${course._id}`} >{course.name}</Link></li>
-                  </ul>
-                
-                )
-            }
-            </div>
+        <div className='grid grid-cols-4 gap-4   '>
+          <div className='hidden lg:block'> <LeftSideNav></LeftSideNav> </div>
             <div className='col-span-3'>
             <div className='grid lg:grid-cols-2  md:grid-cols-1 sm:grid-cols-1 gap-4'>
             {courses.map(course =><Course key={course._id}

@@ -7,8 +7,8 @@ const Course = ({course}) => {
     return (
         <div className="card mt-5 card-compact w-96  shadow-xl">
         <figure className='bg-slate-700'><img className='h-56 ' src={picture} alt="course" /></figure>
-        <div className="card-body bg-green-100  text-dark">
-          <h2 className="card-title">{name}</h2>
+        <div className="card-body bg-white  dark:text-dark">
+          <h2 className="card-title dark:text-dark">{name}</h2>
           <p className='flex'>Total hour of video:{duration}</p>
           <p className='flex'>rating:{rating}</p>
           <h5 className='flex font-bold text-lg m-0'>price: ${price}</h5>

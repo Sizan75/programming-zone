@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import logo from '../../images/logo535.png'
 import ReactTooltip from 'react-tooltip';
+import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 const Header = () => {
     const [navbar, setNavbar] = useState(false);
@@ -79,8 +80,8 @@ const Header = () => {
                                     </label>
                                 </div>
                             </li>
-                           
-                            
+
+
                             <li className="text-gray-600 font-semibold hover:text-purple-600">
                                 <NavLink to="/courses">Courses</NavLink>
                             </li>
@@ -94,7 +95,7 @@ const Header = () => {
                             {
                                 user?.uid ?
                                     <>
-                                       
+
 
 
                                         {user?.photoURL ?
@@ -123,7 +124,11 @@ const Header = () => {
                                         </li>
                                     </>
                             }
+
                         </ul>
+                        <div className='lg:hidden'>
+                            <LeftSideNav></LeftSideNav>
+                        </div>
                     </div>
                 </div>
             </div>

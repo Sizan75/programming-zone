@@ -12,7 +12,7 @@ const Head = () => {
           <div className="mb-16 lg:max-w-lg lg:mb-0">
             <div className="max-w-xl mb-6">
               
-              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight dark:text-black sm:text-4xl sm:leading-none">
                 Hi, {user?.displayName ? user?.displayName : 'user'}
                 <br className="hidden md:block" />
                 Let's {' '}
@@ -20,7 +20,7 @@ const Head = () => {
                   Start Learning Now.
                 </span>
               </h2>
-              <p className="text-base text-gray-700 md:text-lg">
+              <p className="text-base dark:text-black md:text-lg">
                 Learn programming language from the experts.And get job quickly.
               </p>
             </div>
