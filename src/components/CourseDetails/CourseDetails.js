@@ -3,33 +3,34 @@ import { FaGlobe, FaStar } from 'react-icons/fa';
 import { FcConferenceCall, FcDownload, FcReadingEbook } from 'react-icons/fc';
 import { Link, useLoaderData } from 'react-router-dom';
 import ReactToPdf from "react-to-pdf";
-
+import toast from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 
 const CourseDetails = () => {
     const course = useLoaderData();
     const { _id, name, picture, instructor, price, total_student, rating, duration, total_reviewed, language, total_lesson, } = course
 
-// react to pdf
+    // react to pdf
     const ref = React.createRef();
     return (
         <div>
             <div className='flex justify-around'>
                 <h2 className='text-4xl font-bold text-blue-600'>Course Details</h2>
-              
+
 
             </div>
-        <div  className='flex align-center justify-center'>
-            
+            <div className='flex align-center justify-center'>
+
                 <div ref={ref} className="max-w-sm  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <div className='flex justify-end'>
-                {/* pdf downloading here */}
-<ReactToPdf targetRef={ref} filename="course-details.pdf"    >
-        {({toPdf}) => (
-            <button onClick={toPdf}>< FcDownload className="text-4xl"/></button>
-        )}
-    </ReactToPdf>
-    </div>  
+                    <div className='flex justify-end'>
+                        {/* pdf downloading here */}
+                        <ReactToPdf targetRef={ref} filename="course-details.pdf"    >
+                            {({ toPdf }) => (
+                                <button onClick={toPdf}>< FcDownload className="text-4xl" /></button>
+                            )}
+                      </ReactToPdf>                      
+                    </div>
                     <Link to={`/checkout/${_id}`}>
                         <img className="rounded-t-lg" src={picture} alt="" />
                     </Link>

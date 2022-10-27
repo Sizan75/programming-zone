@@ -80,6 +80,7 @@ const Header = () => {
                                 </div>
                             </li>
                            
+                            
                             <li className="text-gray-600 font-semibold hover:text-purple-600">
                                 <NavLink to="/courses">Courses</NavLink>
                             </li>
@@ -108,7 +109,7 @@ const Header = () => {
 
 
                                         <li className="text-gray-800  font-semibold hover:text-purple-600">
-                                            <button onClick={handleUserSignout}><NavLink to="/register"><FaSignOutAlt></FaSignOutAlt></NavLink></button>
+                                            <button onClick={handleUserSignout}><NavLink to="/login"><FaSignOutAlt></FaSignOutAlt></NavLink></button>
                                         </li>
                                     </> :
 

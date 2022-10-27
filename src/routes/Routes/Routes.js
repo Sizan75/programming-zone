@@ -5,7 +5,8 @@ import CourseDetails from "../../components/CourseDetails/CourseDetails";
 import Courses from "../../components/Courses/Courses";
 import ErrorPage from "../../components/ErrorPage/ErrorPage";
 import FAQ from "../../components/FAQ/FAQ";
-import Home from "../../components/Home/Home";
+import Head from "../../components/Head/Head";
+
 import Login from "../../components/Login/Login";
 import Register from "../../components/Register/Register";
 import Main from "../../layout/Main/Main/Main";
@@ -17,7 +18,10 @@ export const routes= createBrowserRouter([
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
         children:[
-            
+            {
+                path:'/',
+                element: <Head></Head>
+            },
             {
                 path:'/courses',
                 loader: () => fetch('https://programming-learning-zone-server.vercel.app/courses'),
@@ -45,6 +49,7 @@ export const routes= createBrowserRouter([
                 path:'/login',
                 element: <Login></Login>
             },
+            
             {
                 path:'/register',
                 element: <Register/>

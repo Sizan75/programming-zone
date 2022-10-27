@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 const CheckOut = () => {
     const course = useLoaderData();
-    const { name, price, duration, instructor,picture } = course;
+    const { name, price, duration, instructor } = course;
     const { user } = useContext(AuthContext);
 
     const handleSubmit = () => {
