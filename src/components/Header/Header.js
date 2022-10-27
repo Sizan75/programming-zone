@@ -79,10 +79,7 @@ const Header = () => {
                                     </label>
                                 </div>
                             </li>
-                            <li className="text-gray-600 font-semibold hover:text-purple-600">
-                                <NavLink to="/">Home</NavLink>
-                            </li>
-
+                           
                             <li className="text-gray-600 font-semibold hover:text-purple-600">
                                 <NavLink to="/courses">Courses</NavLink>
                             </li>

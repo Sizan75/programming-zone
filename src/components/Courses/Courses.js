@@ -11,7 +11,7 @@ const Courses = () => {
             <h3 className='text-xl'>Courses</h3>
             {
                 courses.map(course => 
-                    <ul key={course._id} className="menu bg-base-100  w-56">
+                    <ul key={course._id} className="menu bg-base-100  sm:w-56">
                     <li><Link to={`/courses/${course._id}`} >{course.name}</Link></li>
                   </ul>
                 
@@ -19,7 +19,7 @@ const Courses = () => {
             }
             </div>
             <div className='col-span-3'>
-            <div className='grid grid-cols-2 gap-4'>
+            <div className='grid lg:grid-cols-2  md:grid-cols-1 sm:grid-cols-1 gap-4'>
             {courses.map(course =><Course key={course._id}
             course={course}
             ></Course>)}
