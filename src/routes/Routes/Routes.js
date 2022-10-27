@@ -17,10 +17,7 @@ export const routes= createBrowserRouter([
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
         children:[
-            {
-                path:'/',
-                element: <Home></Home>
-            },
+            
             {
                 path:'/courses',
                 loader: () => fetch('https://programming-learning-zone-server.vercel.app/courses'),

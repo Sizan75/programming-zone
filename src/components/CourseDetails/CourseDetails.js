@@ -16,18 +16,20 @@ const CourseDetails = () => {
         <div>
             <div className='flex justify-around'>
                 <h2 className='text-4xl font-bold text-blue-600'>Course Details</h2>
-            <div>
+              
+
+            </div>
+        <div  className='flex align-center justify-center'>
+            
+                <div ref={ref} className="max-w-sm  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div className='flex justify-end'>
                 {/* pdf downloading here */}
 <ReactToPdf targetRef={ref} filename="course-details.pdf"    >
         {({toPdf}) => (
             <button onClick={toPdf}>< FcDownload className="text-4xl"/></button>
         )}
     </ReactToPdf>
-    </div>    
-
-            </div>
-        <div  className='flex align-center justify-center'>
-                <div ref={ref} className="max-w-sm  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    </div>  
                     <Link to={`/checkout/${_id}`}>
                         <img className="rounded-t-lg" src={picture} alt="" />
                     </Link>
