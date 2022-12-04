@@ -7,7 +7,7 @@ export const AuthContext =createContext()
 const AuthProvider = ({children}) => {
     const auth=getAuth(app)
     const [user, setuser]=useState(null)    
-    const [loading, setLoading]=useState(true)    
+    const [loading, setLoading]=useState(true) 
     // creating user by email password 
     const createUser = (email,password) =>{
         setLoading(true)
