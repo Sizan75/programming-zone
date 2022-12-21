@@ -3,8 +3,6 @@ import { FaGlobe, FaStar } from 'react-icons/fa';
 import { FcConferenceCall, FcDownload, FcReadingEbook } from 'react-icons/fc';
 import { Link, useLoaderData } from 'react-router-dom';
 import ReactToPdf from "react-to-pdf";
-import toast from 'react-hot-toast';
-import { Toaster } from 'react-hot-toast';
 
 
 const CourseDetails = () => {
@@ -14,9 +12,9 @@ const CourseDetails = () => {
     // react to pdf
     const ref = React.createRef();
     return (
-        <div>
+        <div className='mt-8'>
             <div className='flex justify-around'>
-                <h2 className='text-4xl font-bold text-blue-600'>Course Details</h2>
+                <h2 className='text-4xl mb-5 font-bold text-blue-600'>Course Details</h2>
 
 
             </div>
